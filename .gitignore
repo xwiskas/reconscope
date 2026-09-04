@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+.env.*
+
+# Build / dist
+build/
+dist/
+*.egg-info/
+*.egg
+.pytest_cache/
+.ruff_cache/
+.coverage
+.tox/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local data / logs
+logs/
+*.log
+data/
+*.sqlite
+*.db
+
+# Local config
+local_settings.py
+config.local.yaml
+
+# PyInstaller
+*.spec
+*.exe
+dist/
+
+# IDE/editor
+.vscode/
+.idea/
+*.swp
+*.swo
