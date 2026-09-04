@@ -43,7 +43,7 @@ python -m reconscope.launcher
 ```bash
 # 1. Download from GitHub: https://github.com/xwiskas/reconscope/archive/refs/heads/master.zip
 # 2. Extract the ZIP
-# 4. Continue from step 3 in Option A (venv, install, test, run)
+# 3. Continue from step 3 in Option A (venv, install, test, run)
 ```
 
 ### Option C — GitHub Codespaces (run in browser, zero local setup)
@@ -54,20 +54,7 @@ python -m reconscope.launcher
 4. In the terminal: `cd backend && pip install -e ".[dev]" && pytest -q && python -m reconscope.launcher`
 5. Use the **Ports** tab to forward the printed port, then open the bootstrap URL
 
-### Option D — Windows installer (for end users, no Python needed)
-
-If you've built the installer (or download a release):
-```powershell
-# Build it once:
-cd installer
-./build.ps1
-
-# Then just run the produced installer:
-./dist/ReconScope_Setup.exe
-```
-This bundles Python, the backend, the React SPA, and Nmap detection into a standalone `.exe` — no Python, venv, or git required on the target machine.
-
-### Option E — PyInstaller one-folder build (portable)
+### Option D — PyInstaller one-folder build (portable)
 
 ```powershell
 cd installer
@@ -103,11 +90,11 @@ pyinstaller reconscope.spec
 
 ## Milestones (PRD §12)
 
-- **M0** — Safety spine: scope canonicalization, evaluation, gate, bootstrap auth, mandatory scope-bypass tests ✅
-- **M1** — Passive recon: RDAP, DNS, CT logs, reverse DNS, asset hints, social footprint; evidence store, findings, provider adapters ✅
-- **M2** — Bounded active recon: TCP scan, service detection, HTTP overview, TLS review; Nmap XML parsing, subprocess supervisor, live SSE + cancel ✅
-- **M3** — Learning, findings, reporting: Markdown reports with evidence traceability, learner worksheets, deterministic recommendations ✅
-- **M4** — Windows packaging: PyInstaller + Inno Setup installer ✅ (build scripts ready)
+- **M0** — Safety spine: scope canonicalization, evaluation, gate, bootstrap auth, mandatory scope-bypass tests
+- **M1** — Passive recon: RDAP, DNS, CT logs, reverse DNS, asset hints, social footprint; evidence store, findings, provider adapters
+- **M2** — Bounded active recon: TCP scan, service detection, HTTP overview, TLS review; Nmap XML parsing, subprocess supervisor, live SSE + cancel
+- **M3** — Learning, findings, reporting: Markdown reports with evidence traceability, learner worksheets, deterministic recommendations
+- **M4** — Windows packaging: PyInstaller + Inno Setup installer (build scripts ready)
 
 ---
 
