@@ -12,6 +12,8 @@ ReconScope helps someone new to recon perform *and understand* the reconnaissanc
 
 Get ReconScope running in under 2 minutes:
 
+### Option A — Local dev (recommended for contributors)
+
 ```bash
 # 1. Install Nmap (required for active scanning)
 winget install --id Insecure.Nmap --accept-source-agreements --accept-package-agreements
@@ -36,7 +38,46 @@ python -m reconscope.launcher
 #    http://127.0.0.1:<port>/#bootstrap=<token>
 ```
 
-**What you'll see:**
+### Option B — Download ZIP (no git)
+
+```bash
+# 1. Download from GitHub: https://github.com/xwiskas/reconscope/archive/refs/heads/master.zip
+# 2. Extract the ZIP
+# 4. Continue from step 3 in Option A (venv, install, test, run)
+```
+
+### Option C — GitHub Codespaces (run in browser, zero local setup)
+
+1. Go to [github.com/xwiskas/reconscope](https://github.com/xwiskas/reconscope)
+2. Click **Code ▸ Codespaces ▸ Create codespace on master**
+3. Wait ~2 min for the dev container to build
+4. In the terminal: `cd backend && pip install -e ".[dev]" && pytest -q && python -m reconscope.launcher`
+5. Use the **Ports** tab to forward the printed port, then open the bootstrap URL
+
+### Option D — Windows installer (for end users, no Python needed)
+
+If you've built the installer (or download a release):
+```powershell
+# Build it once:
+cd installer
+./build.ps1
+
+# Then just run the produced installer:
+./dist/ReconScope_Setup.exe
+```
+This bundles Python, the backend, the React SPA, and Nmap detection into a standalone `.exe` — no Python, venv, or git required on the target machine.
+
+### Option E — PyInstaller one-folder build (portable)
+
+```powershell
+cd installer
+pyinstaller reconscope.spec
+# Output: dist/reconscope/  → copy this folder anywhere, run ReconScope.exe
+```
+
+---
+
+**What you'll see (all options):**
 - A local FastAPI backend serving a React SPA on loopback only
 - One-time bootstrap token flow for session security
 - Guided passive recon (RDAP, DNS, CT logs, reverse DNS, asset hints)
